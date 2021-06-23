@@ -3,6 +3,7 @@ package com.itheima.test;
 import com.itheima.dao.IAccountDao;
 import com.itheima.dao.IUserDao;
 import com.itheima.domain.Account;
+import com.itheima.domain.AccountUser;
 import com.itheima.domain.QueryVo;
 import com.itheima.domain.User;
 import org.apache.ibatis.io.Resources;
@@ -66,14 +67,14 @@ public class MybatisTest {
 
 
     /**
-     * 查询所有
+     * 查询所有账户 ,同时包含用户名称和地址 , 用户和账户是 一对多
      */
     @Test
-    public void testFindAccount(){
-        List<Account> accounts = new ArrayList<Account>();
-        accounts = accountDao.findAll();
-        for (Account account : accounts) {
-            System.out.println(account);
+    public void testFindAccountUser(){
+        List<AccountUser> accounts  = accountDao.findAllAccount();
+
+        for (AccountUser accountUser : accounts) {
+            System.out.println(accountUser);
         }
     }
 

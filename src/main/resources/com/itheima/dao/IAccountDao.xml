@@ -6,14 +6,14 @@
 <mapper namespace="com.itheima.dao.IAccountDao">
 
     <!--查询所有-->
-    <select id="findAll" resultType="com.itheima.domain.Account">
+    <select id="findAll" resultType="account">
         select * from account ;
     </select>
 
-    <!--查询所有-->
-    <select id="findAll" resultType="com.itheima.domain.Account">
-        select * from account ;
+    <!--查询所有同时包含用户名和地址信息-->
+    <select id="findAllAccount" resultType="accountuser">
+    <!--SELECT u.*,a.id AS aid,a.uid,a.money FROM account a,USER u WHERE u.id = a.uid //从海豚中 拿来的语句 -->
+        SELECT a.*,u.username,u.address FROM account a,USER u WHERE u.id = a.uid;
     </select>
-
 
 </mapper>
